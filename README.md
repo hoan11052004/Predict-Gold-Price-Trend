@@ -1,6 +1,6 @@
-# 📈 Machine Learning Framework for Gold Price Trend Forecasting (VNĐ/Lượng)
+# Machine Learning Framework for Gold Price Trend Forecasting (VNĐ/Lượng)
 
-## 📌 Problem Overview
+##  Problem Overview
 Forecasting domestic gold price movements in Vietnam requires capturing a **dual-risk mechanism**:
 1. International commodity price shocks (**XAU/USD**).
 2. Domestic currency depreciation and foreign exchange fluctuations (**USD/VND**).
@@ -9,14 +9,14 @@ Unlike traditional regression models that suffer from price inertia, this projec
 
 ---
 
-## 🛠 Tech Stack & Workflow
+##  Tech Stack & Workflow
 - **Language & Core:** Python, Pandas, NumPy, Scikit-learn, Statsmodels, Matplotlib
 - **Algorithms:** Logistic Regression (L2-Regularized Baseline), Random Forest, Bootstrap Aggregating Decision Trees (Tree Bagging)
 - **Data Engineering:** Winsorization (1%–99%), Z-score Standardization (strictly fitted on Train set), Multicollinearity Testing (VIF)
 
 ---
 
-## 🔬 Mathematical Logic & Methodology
+## Mathematical Logic & Methodology
 
 ### 1. Target Definition
 $$\text{Return}_{t,5} = \frac{P_{t+5} - P_t}{P_t} \quad \longrightarrow \quad Y_t = \begin{cases} 1 & \text{if } \text{Return}_{t,5} > 0 \text{ (Upward Trend)} \\ 0 & \text{if } \text{Return}_{t,5} \le 0 \text{ (Downward/Neutral)} \end{cases}$$
@@ -37,7 +37,7 @@ To prevent forward-looking bias (data leakage), the dataset (1,496 daily records
 
 ---
 
-## 📊 Empirical Evaluation (Out-of-Sample Test 2025)
+##  Empirical Evaluation (Out-of-Sample Test 2025)
 
 | Metric | Logistic Regression (Baseline) | Random Forest | Tree Bagging (Champion) |
 | :--- | :---: | :---: | :---: |
@@ -52,7 +52,7 @@ To prevent forward-looking bias (data leakage), the dataset (1,496 daily records
 
 ---
 
-## 💡 Key Findings & Practical Insights
+##  Key Findings & Practical Insights
 
 1. **Non-linear Ensemble Superiority:** Tree Bagging effectively mitigates high multicollinearity among technical indicators (where VIF exceeded critical thresholds in the linear baseline), yielding the highest predictive stability (AUC = 0.674, F1 = 0.7188).
 2. **The USD/VND Volatility Anchor:** Feature Importance analysis revealed that **20-day rolling exchange rate volatility (`fx_vol20`) is the single most decisive predictor (8.2% weight)**, surpassing traditional gold momentum indicators. This confirms that currency instability directly amplifies domestic safe-haven demand in Vietnam.
