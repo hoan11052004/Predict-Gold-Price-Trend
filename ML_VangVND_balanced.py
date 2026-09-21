@@ -1,12 +1,5 @@
 # ============================
 # ML_VangVND_full.py (Balanced Accuracy version)
-# Logistic (baseline) + Tree Bagging + Random Forest
-# Time split: Train 2020-2023 | Val 2024 | Test 2025
-# Tune hyperparams on Val (AUC), choose threshold on Val (Balanced Accuracy),
-# Retrain on Train+Val, evaluate on Test.
-# Dùng file SCALED — không cần StandardScaler
-# ============================
-
 import warnings
 warnings.filterwarnings("ignore")
 
